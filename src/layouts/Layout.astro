@@ -1,0 +1,127 @@
+---
+import '@fontsource/lora';
+import '@fontsource/open-sans';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SEO } from 'astro-seo';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { title, description, image = '/images/default-og.jpg' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, 'https://psicocorts.vercel.app').toString();
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+    <SEO
+      title={`${title} | PsicoCorts`}
+      description={description}
+      openGraph={{
+        basic: {
+          title: `${title} | PsicoCorts`,
+          type: 'website',
+          image: image,
+          url: canonicalURL,
+        },
+        optional: {
+          siteName: 'PsicoCorts',
+          description: description,
+        },
+      }}
+      twitter={{
+        card: 'summary_large_image',
+        site: '@psicocorts',
+        creator: '@psicocorts',
+        title: `${title} | PsicoCorts`,
+        description: description,
+        image: image,
+      }}
+      extend={{
+        meta: [
+          { name: 'robots', content: 'index, follow' },
+          { name: 'googlebot', content: 'index, follow' },
+          { name: 'format-detection', content: 'telephone=no' },
+          { name: 'theme-color', content: '#b054a7' },
+        ]
+      }}
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "PsychologicalTreatment",
+        "name": "PsicoCorts",
+        "description": "Servicio profesional de psicología en Les Corts, Barcelona",
+        "url": "https://psicocorts.vercel.app",
+        "telephone": "933303916",
+        "priceRange": "€€",
+        "availableLanguage": ["Spanish"],
+        "areaServed": {
+          "@type": "City",
+          "name": "Barcelona",
+          "containedIn": {
+            "@type": "AdministrativeArea",
+            "name": "Les Corts"
+          }
+        },
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "PsicoCorts",
+          "image": "/images/default-og.jpg",
+          "url": "https://psicocorts.vercel.app",
+          "telephone": "933303916",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. de Madrid, 127, 1º-1ª",
+            "addressLocality": "Barcelona",
+            "addressRegion": "Catalunya",
+            "postalCode": "08028",
+            "addressCountry": "ES"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "41.3801477",
+            "longitude": "2.1275668"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "10:00",
+              "closes": "13:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "16:00",
+              "closes": "19:00"
+            }
+          ]
+        },
+        "serviceType": [
+          "Terapia Individual",
+          "Terapia de Parejas",
+          "Terapia Familiar",
+          "Tratamiento de Ansiedad",
+          "Tratamiento de Depresión"
+        ]
+      }
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col bg-gray-50">
+    <Header />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

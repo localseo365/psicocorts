@@ -1,0 +1,35 @@
+---
+const currentLocale = Astro.currentLocale || 'es';
+const currentPath = Astro.url.pathname;
+
+const languages = [
+  { code: 'es', name: 'Español' },
+  { code: 'ca', name: 'Català' },
+  { code: 'en', name: 'English' },
+];
+
+function getLocalizedPath(path: string, locale: string) {
+  if (locale === 'es') return path;
+  const segments = path.split('/').filter(Boolean);
+  if (languages.some(lang => lang.code === segments[0])) {
+    segments.shift();
+  }
+  return `/${locale}/${segments.join('/')}`;
+}
+---
+
+<div class="relative inline-block text-left">
+  <select
+    class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm rounded-md"
+    onChange="window.location.href=this.value"
+  >
+    {languages.map((lang) => (
+      <option
+        value={getLocalizedPath(currentPath, lang.code)}
+        selected={currentLocale === lang.code}
+      >
+        {lang.name}
+      </option>
+    ))}
+  </select>
+</div>

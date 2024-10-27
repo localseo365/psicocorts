@@ -1,0 +1,50 @@
+---
+const currentLocale = Astro.currentLocale || 'es';
+
+const content = {
+  es: {
+    title: 'Psicólogo en Les Corts, Barcelona',
+    subtitle: 'Psicólogos especializados en Les Corts, Barcelona',
+    description: 'Ofrezco un espacio seguro y profesional para ayudarte a superar los desafíos emocionales y alcanzar una mejor calidad de vida.',
+    cta: 'Reserva tu primera sesión',
+  },
+  ca: {
+    title: 'El teu camí cap al benestar emocional',
+    subtitle: 'Psicòloga especialitzada a Les Corts, Barcelona',
+    description: 'Ofereixo un espai segur i professional per ajudar-te a superar els reptes emocionals i assolir una millor qualitat de vida.',
+    cta: 'Reserva la teva primera sessió',
+  },
+  en: {
+    title: 'Your path to emotional well-being',
+    subtitle: 'Specialized Psychologist in Les Corts, Barcelona',
+    description: 'I offer a safe and professional space to help you overcome emotional challenges and achieve a better quality of life.',
+    cta: 'Book your first session',
+  },
+};
+
+const t = content[currentLocale];
+---
+
+<section class="relative bg-cover bg-center min-h-[80vh] flex items-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://plus.unsplash.com/premium_photo-1681853483418-0a7291bcde76?q=80&w=2014&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+    <div class="text-center max-w-3xl mx-auto">
+      <h1 class="text-4xl tracking-tight font-serif font-bold text-white sm:text-5xl md:text-6xl">
+        {t.title}
+      </h1>
+      <h2 class="mt-3 text-xl text-gray-200 sm:mt-5 sm:text-2xl">
+        {t.subtitle}
+      </h2>
+      <p class="mt-3 text-base text-gray-300 sm:mt-5 sm:text-lg">
+        {t.description}
+      </p>
+      <div class="mt-8 sm:mt-12">
+        <a
+          href="/contacto"
+          class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#fc04e4] hover:bg-[#e004cc] md:py-4 md:text-lg md:px-10 transition duration-150 ease-in-out"
+        >
+          {t.cta}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

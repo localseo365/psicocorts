@@ -1,0 +1,73 @@
+---
+const currentLocale = Astro.currentLocale || 'es';
+
+const content = {
+  es: {
+    address: 'Dirección',
+    contact: 'Contacto',
+    schedule: 'Horario',
+    rights: 'Todos los derechos reservados',
+  },
+  ca: {
+    address: 'Adreça',
+    contact: 'Contacte',
+    schedule: 'Horari',
+    rights: 'Tots els drets reservats',
+  },
+  en: {
+    address: 'Address',
+    contact: 'Contact',
+    schedule: 'Schedule',
+    rights: 'All rights reserved',
+  },
+};
+
+const t = content[currentLocale];
+---
+
+<footer class="bg-white">
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">{t.address}</h3>
+        <p class="mt-4 text-base text-gray-500">
+          Av. de Madrid, 127, 1º-1ª<br />
+          Distrito de Les Corts<br />
+          08028 Barcelona
+        </p>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">{t.contact}</h3>
+        <p class="mt-4 text-base text-gray-500">
+          933 30 39 16<br />
+          <a href="https://psicocorts.vercel.app/" class="hover:text-gray-600">psicocorts.vercel.app</a>
+        </p>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">{t.schedule}</h3>
+        <p class="mt-4 text-base text-gray-500">
+          Lunes - Viernes<br />
+          10:00 - 13:00<br />
+          16:00 - 19:00
+        </p>
+      </div>
+    </div>
+    <div class="mt-8 w-full">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.720917300962!2d2.1275668745763183!3d41.38014779644651!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a49932ec3b785d%3A0xda33472d314dbb36!2sPsic%C3%B3logos%20Barcelona%20Llanos%20Senlle!5e0!3m2!1ses!2ses!4v1730015323885!5m2!1ses!2ses" 
+        width="100%" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"
+        class="rounded-lg shadow-md"
+      ></iframe>
+    </div>
+    <div class="mt-8 border-t border-gray-200 pt-8">
+      <p class="text-base text-gray-400 text-center">
+        © {new Date().getFullYear()} PsicoCorts. {t.rights}.
+      </p>
+    </div>
+  </div>
+</footer>

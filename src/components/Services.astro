@@ -1,0 +1,104 @@
+---
+const currentLocale = Astro.currentLocale || 'es';
+
+const content = {
+  es: {
+    title: 'Nuestros servicios',
+    description: 'Ofrecemos una amplia gama de servicios psicológicos adaptados a tus necesidades',
+    services: [
+      {
+        title: 'Terapia individual',
+        description: 'Tratamiento psicológico personalizado para ayudarte a superar desafíos personales, ansiedad, depresión, estrés y otros problemas emocionales. Utilizamos técnicas terapéuticas avaladas científicamente para mejorar tu bienestar emocional y calidad de vida en un espacio seguro y confidencial.',
+        icon: '👤',
+      },
+      {
+        title: 'Terapia de parejas',
+        description: 'Servicio especializado en mejorar la comunicación, resolver conflictos y fortalecer vínculos en la relación de pareja. Trabajamos problemas de convivencia, infidelidad, celos, y otros desafíos relacionales mediante técnicas efectivas de terapia de pareja en Les Corts, Barcelona.',
+        icon: '👥',
+      },
+      {
+        title: 'Terapia familiar',
+        description: 'Intervención terapéutica para familias que buscan mejorar su dinámica, resolver conflictos y fortalecer lazos. Abordamos problemas de comunicación, crisis familiares, conflictos intergeneracionales y dificultades en la crianza con un enfoque sistémico y soluciones prácticas.',
+        icon: '👨‍👩‍👧‍👦',
+      },
+      {
+        title: 'Ansiedad y depresión',
+        description: 'Tratamiento especializado y efectivo para superar la ansiedad, depresión, ataques de pánico y trastornos del estado de ánimo. Utilizamos terapia cognitivo-conductual y otras técnicas basadas en la evidencia para ayudarte a recuperar el control de tu vida y tu bienestar emocional.',
+        icon: '🧠',
+      },
+    ],
+  },
+  ca: {
+    title: 'Els Nostres Serveis',
+    description: 'Oferim una àmplia gamma de serveis psicològics adaptats a les teves necessitats',
+    services: [
+      {
+        title: 'Teràpia Individual',
+        description: 'Tractament psicològic personalitzat per ajudar-te a superar reptes personals, ansietat, depressió, estrès i altres problemes emocionals. Utilitzem tècniques terapèutiques avalades científicament per millorar el teu benestar emocional i qualitat de vida en un espai segur i confidencial.',
+        icon: '👤',
+      },
+      {
+        title: 'Teràpia de Parella',
+        description: 'Servei especialitzat en millorar la comunicació, resoldre conflictes i enfortir vincles en la relació de parella. Treballem problemes de convivència, infidelitat, gelosia, i altres reptes relacionals mitjançant tècniques efectives de teràpia de parella a Les Corts, Barcelona.',
+        icon: '👥',
+      },
+      {
+        title: 'Teràpia Familiar',
+        description: 'Intervenció terapèutica per a famílies que busquen millorar la seva dinàmica, resoldre conflictes i enfortir llaços. Abordem problemes de comunicació, crisis familiars, conflictes intergeneracionals i dificultats en la criança amb un enfocament sistèmic i solucions pràctiques.',
+        icon: '👨‍👩‍👧‍👦',
+      },
+      {
+        title: 'Ansietat i Depressió',
+        description: 'Tractament especialitzat i efectiu per superar l\'ansietat, depressió, atacs de pànic i trastorns de l\'estat d\'ànim. Utilitzem teràpia cognitivo-conductual i altres tècniques basades en l\'evidència per ajudar-te a recuperar el control de la teva vida i el teu benestar emocional.',
+        icon: '🧠',
+      },
+    ],
+  },
+  en: {
+    title: 'Our Services',
+    description: 'We offer a wide range of psychological services tailored to your needs',
+    services: [
+      {
+        title: 'Individual Therapy',
+        description: 'Personalized psychological treatment to help you overcome personal challenges, anxiety, depression, stress, and other emotional issues. We use scientifically-backed therapeutic techniques to improve your emotional well-being and quality of life in a safe and confidential space.',
+        icon: '👤',
+      },
+      {
+        title: 'Couples Therapy',
+        description: 'Specialized service focused on improving communication, resolving conflicts, and strengthening bonds in relationships. We work with cohabitation issues, infidelity, jealousy, and other relationship challenges using effective couples therapy techniques in Les Corts, Barcelona.',
+        icon: '👥',
+      },
+      {
+        title: 'Family Therapy',
+        description: 'Therapeutic intervention for families seeking to improve their dynamics, resolve conflicts, and strengthen bonds. We address communication problems, family crises, intergenerational conflicts, and parenting difficulties using a systemic approach and practical solutions.',
+        icon: '👨‍👩‍👧‍👦',
+      },
+      {
+        title: 'Anxiety and Depression',
+        description: 'Specialized and effective treatment for overcoming anxiety, depression, panic attacks, and mood disorders. We use cognitive-behavioral therapy and other evidence-based techniques to help you regain control of your life and emotional well-being.',
+        icon: '🧠',
+      },
+    ],
+  },
+};
+
+const t = content[currentLocale];
+---
+
+<section class="py-12 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <h2 class="text-3xl font-serif font-bold text-gray-900 sm:text-4xl">{t.title}</h2>
+      <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">{t.description}</p>
+    </div>
+    <div class="mt-12 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      {t.services.map((service) => (
+        <div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow duration-300">
+          <div class="text-4xl mb-4">{service.icon}</div>
+          <h3 class="text-lg font-medium text-gray-900">{service.title}</h3>
+          <p class="mt-2 text-base text-gray-500">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

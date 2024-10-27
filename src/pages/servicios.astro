@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Services from '../components/Services.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const title = 'Servicios de Psicología | PsicoCorts';
+const description = 'Servicios profesionales de psicología en Les Corts, Barcelona. Terapia individual, de parejas, familiar y tratamiento de ansiedad y depresión.';
+---
+
+<Layout title={title} description={description}>
+  <div class="py-12">
+    <Services />
+  </div>
+  <ContactCTA />
+</Layout>

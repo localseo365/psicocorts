@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import About from '../components/About.astro';
+import Testimonials from '../components/Testimonials.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const title = 'Psicóloga en Les Corts, Barcelona | Terapia Individual y de Parejas';
+const description = 'Servicio profesional de psicología en Les Corts, Barcelona. Ofrecemos terapia individual, de parejas y familiar en un ambiente acogedor y confidencial.';
+---
+
+<Layout title={title} description={description}>
+  <Hero />
+  <Services />
+  <About />
+  <Testimonials />
+  <ContactCTA />
+</Layout>

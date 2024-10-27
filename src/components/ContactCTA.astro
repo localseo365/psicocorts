@@ -1,0 +1,42 @@
+---
+const currentLocale = Astro.currentLocale || 'es';
+
+const content = {
+  es: {
+    title: '¿Listo para dar el primer paso?',
+    description: 'Agenda tu primera consulta y comienza tu camino hacia el bienestar emocional.',
+    cta: 'Contactar ahora',
+  },
+  ca: {
+    title: 'Preparat per fer el primer pas?',
+    description: 'Agenda la teva primera consulta i comença el teu camí cap al benestar emocional.',
+    cta: 'Contactar ara',
+  },
+  en: {
+    title: 'Ready to take the first step?',
+    description: 'Schedule your first consultation and begin your journey to emotional well-being.',
+    cta: 'Contact now',
+  },
+};
+
+const t = content[currentLocale];
+---
+
+<section class="bg-[#b054a7]">
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+    <h2 class="text-3xl font-serif font-bold tracking-tight text-white sm:text-4xl">
+      <span class="block">{t.title}</span>
+      <span class="block text-primary-200 text-xl font-normal mt-2">{t.description}</span>
+    </h2>
+    <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+      <div class="inline-flex rounded-md shadow">
+        <a
+          href="/contacto"
+          class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-primary-600 bg-white hover:bg-primary-50"
+        >
+          {t.cta}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

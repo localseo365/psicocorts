@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import About from '../components/About.astro';
+import Testimonials from '../components/Testimonials.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const title = 'Sobre Mí | PsicoCorts';
+const description = 'Psicóloga colegiada con más de 10 años de experiencia en terapia individual y de parejas en Les Corts, Barcelona.';
+---
+
+<Layout title={title} description={description}>
+  <div class="py-12">
+    <About />
+    <Testimonials />
+  </div>
+  <ContactCTA />
+</Layout>
